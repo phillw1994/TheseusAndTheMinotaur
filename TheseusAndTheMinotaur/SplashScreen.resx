@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>The Windows Store App for this game should hopefully be available soon. If you need help with anything inside this game then please view the about page accessable from the main menu of this application. Happy Playing</value>
+  </data>
 </root>

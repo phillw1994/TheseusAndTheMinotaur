@@ -8,3 +8,13 @@ C:\Users\Phillip\Desktop\Dropbox\BCPR283\TheseusAndTheMinotaur\TheseusAndTheMino
 C:\Users\Phillip\Desktop\Dropbox\BCPR283\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.SplashScreen.resources
 C:\Users\Phillip\Desktop\Dropbox\BCPR283\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmGame.resources
 C:\Users\Phillip\Desktop\Dropbox\BCPR283\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmMain.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.exe
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.pdb
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\bin\Debug\TheseusAndTheMinotaur.exe
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\bin\Debug\TheseusAndTheMinotaur.pdb
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.csprojResolveAssemblyReference.cache
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmGame.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmMain.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.Properties.Resources.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.SplashScreen.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.csproj.GenerateResource.Cache
