@@ -5,21 +5,23 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TheseusAndMinotaurGameLibrary;
+using System.Diagnostics;
 
 namespace TheseusAndTheMinotaur
 {
     public partial class FrmGame : Form
     {
-        public int sizeX;
-        public int sizeY;
-        public int squareSize;
-        public bool fileOpened;
+        private int sizeX;
+        private int sizeY;
+        private int squareSize;
+        private bool fileOpened;
+        private List<Tile> tiles;
+        private Maze maze;
 
         public FrmGame()
         {
             InitializeComponent();
-            panel1.Paint += new PaintEventHandler(panel1_Paint);
-            panel1.Visible = true;
             //this.fileOpened = false;
             //toolStripStatusLabel1.Text = "Ready";
             //this.Height = 550;
@@ -29,8 +31,8 @@ namespace TheseusAndTheMinotaur
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = panel1.CreateGraphics();
-            this.sizeX = 5;
-            this.sizeY = 5;
+            this.sizeX = this.maze.GetWidth();
+            this.sizeY = this.maze.GetHeight();
             this.squareSize = 50;
 
             if (this.sizeX > 0 && this.sizeY > 0)
@@ -47,9 +49,7 @@ namespace TheseusAndTheMinotaur
                 int columnRight = this.panel1.Width - columnLeft;
 
                 int column = 0;
-                int row = 1;
-                int x = 0;
-                int y = 0;
+                int row = 0;
                 int rectStartLeft = columnLeft;
                 int rectEndRight = rectStartLeft;
                 int rectStartTop = columnTop;
@@ -59,21 +59,19 @@ namespace TheseusAndTheMinotaur
                 {
                     rectEndBottom += squareSize;
                     rectEndRight += squareSize;
-                    while (column <= amountOfSquaresX - 1)
+                    while (column <= amountOfSquaresX-1)
                     {
-                        checkChar('-', g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
+                        Tile tile = this.maze.GetTile(row, column);
+                        checkChar(tile.GetSymbol(), g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
                         rectStartLeft = rectEndRight;
                         rectEndRight += squareSize;
                         column += 1;
-                        x += 1;
                     }
                     rectStartTop = rectEndBottom;
                     rectStartLeft = columnLeft;
                     rectEndRight = columnLeft;
                     column = 0;
-                    x = 0;
                     row += 1;
-                    y += 1;
                 }
             }
         }
@@ -84,44 +82,51 @@ namespace TheseusAndTheMinotaur
             SolidBrush sb;
             switch (character)
             {
-                case '#':
-                    p = new Pen(Color.Black);
-                    sb = new SolidBrush(Color.Black);
-                    g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
-                    g.FillRectangle(sb, left, top, this.squareSize, this.squareSize);
+                case 'M':
+                    //p = new Pen(Color.Black);
+                    sb = new SolidBrush(Color.LightGray);
+                    //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
+                    g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
                     break;
-                case '@':
-                    p = new Pen(Color.Black);
-                    sb = new SolidBrush(Color.Yellow);
-                    g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
-                    g.FillEllipse(sb, left + 2, top + 2, this.squareSize - 4, this.squareSize - 4);
+                case 'T':
+                    //p = new Pen(Color.Black);
+                    sb = new SolidBrush(Color.LightGray);
+                    //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
+                    g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
                     break;
-                case '$':
-                    p = new Pen(Color.Black);
-                    sb = new SolidBrush(Color.LightGreen);
-                    g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
-                    g.FillRectangle(sb, left + 4, top + 4, this.squareSize - 6, this.squareSize - 6);
-
-                    break;
-                case '.':
-                    p = new Pen(Color.Red);
-                    sb = new SolidBrush(Color.Red);
-                    g.DrawLine(p, left + 4, top + 4, right - 4, bottom - 4);
-                    g.DrawLine(p, right - 4, top + 4, left + 4, bottom - 4);
+                case 'X':
+                    //p = new Pen(Color.Black);
+                    sb = new SolidBrush(Color.LightGray);
+                    //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
+                    g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
                     break;
                 case '-':
-                    p = new Pen(Color.Black);
+                    //p = new Pen(Color.Black);
                     sb = new SolidBrush(Color.LightGray);
-                    g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
+                    //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
                     g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
                     break;
-                case ' ':
-                    p = new Pen(Color.White);
-                    sb = new SolidBrush(Color.White);
-                    g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
-                    g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
+                case 'H':
                     break;
             }
+        }
+
+        private void FrmGame_Load(object sender, EventArgs e)
+        {
+            string map =
+            ".___.___.___." + "\n" +
+            "|     M     |" + "\n" +
+            ".   .___.   .___." + "\n" +
+            "|       |     X  " + "\n" +
+            ".   .___.   .___." + "\n" +
+            "|     T     |" + "\n" +
+            ".___.___.___.";
+
+            this.maze = new Maze();
+            this.maze.LoadMap(map);
+            this.tiles = this.maze.GetTiles();
+            panel1.Paint += new PaintEventHandler(panel1_Paint);
+            panel1.Visible = true;
         }
     }
 }

@@ -104,6 +104,7 @@
             this.Name = "FrmGame";
             this.Text = "Theseus and the Minotaur Game";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmGame_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

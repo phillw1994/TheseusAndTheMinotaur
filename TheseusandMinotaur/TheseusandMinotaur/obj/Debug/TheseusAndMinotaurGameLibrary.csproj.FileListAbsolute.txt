@@ -1,0 +1,6 @@
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndMinotaurGameLibrary.pdb
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndMinotaurGameLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndMinotaurGameLibrary.pdb
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndMinotaurGameLibrary.dll.config
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndMinotaurGameLibrary.dll
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndMinotaurGameLibrary.dll

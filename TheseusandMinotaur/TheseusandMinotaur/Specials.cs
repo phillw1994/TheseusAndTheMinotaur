@@ -11,6 +11,6 @@ namespace TheseusAndMinotaurGameLibrary
         Theseus = 'T',
         Minotaur = 'M',
         Exit = 'X',
-        Floor = ' '
+        Floor = '-'
     };
 }

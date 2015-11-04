@@ -18,3 +18,6 @@ C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\ob
 C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.Properties.Resources.resources
 C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.SplashScreen.resources
 C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.csproj.GenerateResource.Cache
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\bin\Debug\TheseusAndTheMinotaur.exe.config
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\bin\Debug\TheseusAndMinotaurGameLibrary.dll
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\bin\Debug\TheseusAndMinotaurGameLibrary.pdb

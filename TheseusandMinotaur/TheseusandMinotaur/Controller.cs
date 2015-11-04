@@ -23,24 +23,37 @@ namespace TheseusAndMinotaurGameLibrary
             cv.Say("----------------------------");
             //cv.Say("Please Enter a MapString");
             //this.CreateMap(5, 3, "");
-            string mapString2 = "    .   .\n"
-                            + "    | X |\n"
-                            + ".___.   .___.___.___.___.\n"
-                            + "|                   |   |\n"
-                            + ".   .___.   .   .___.   .\n"
-                            + "|           |           |\n"
-                            + ".   .   .   .   .___.   .\n"
-                            + "|           |       |   |\n"
-                            + ".   .   .   .   .   .   .\n"
-                            + "|   |           |   |   |\n"
-                            + ".___.   .   .   .___.   .\n"
-                            + "| M               T |   |\n"
-                            + ".   .   .___.   .   .   .\n"
-                            + "|                       |\n"
-                            + ".___.___.___.___.___.___.";
-            cv.Say(mapString2);
-            this.maze.CreateMap(1,0);
-            cv.Get();
+
+            string map =
+            ".___.___.___." + "\n" +
+            "|     M     |" + "\n" +
+            ".   .___.   .___." + "\n" +
+            "|       |     X  " + "\n" +
+            ".   .___.   .___." + "\n" +
+            "|     T     |" + "\n" +
+            ".___.___.___.";
+
+
+            Maze maze = new Maze();
+            maze.LoadMap(map);
+            
+
+            Console.WriteLine("Maze Width: " + maze.GetWidth());
+            Console.WriteLine("Maze Height: " + maze.GetHeight());
+
+            List<Tile> tiles = maze.GetTiles();
+
+            int count = 0;
+            foreach (Tile t in tiles)
+            {
+                Console.WriteLine("\n");
+                Console.WriteLine("Tile " + count + " [" + t.GetCoords()[0] + "," + t.GetCoords()[1] + "]");
+                Console.WriteLine("Top Wall " + t.GetTopWall());
+                Console.WriteLine("Left Wall " + t.GetLeftWall());
+                Console.WriteLine("Symbol " + t.GetSymbol());
+                count += 1;
+            }
+            Console.ReadKey();
         }
     }
 }
