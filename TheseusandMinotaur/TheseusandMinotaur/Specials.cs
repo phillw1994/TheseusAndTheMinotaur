@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace TheseusAndMinotaurLibrary
 {
-    interface IView
+    public enum Specials
     {
-        void Say<T>(T message);
-        string Get();
-    }
+        Theseus = 'T',
+        Minotaur = 'M',
+        Exit = 'X',
+        Floor = ' '
+    };
 }

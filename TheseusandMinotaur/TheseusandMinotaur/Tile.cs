@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheseusandMinotaur
+namespace TheseusAndMinotaurLibrary
 {
     public class Tile
     {
@@ -12,16 +12,16 @@ namespace TheseusandMinotaur
         private int column;
         private bool topWall;
         private bool leftWall;
-        private Location location;
+        private char symbol;
 
         public Tile(int row, int column)
         {
             this.row = row;
             this.column = column;
-            this.location = new Location(row, column);
         }
 
-        public void SetTopWall(bool topWall){
+        public void SetTopWall(bool topWall)
+        {
             this.topWall = topWall;
         }
 
@@ -40,19 +40,19 @@ namespace TheseusandMinotaur
             return this.leftWall;
         }
 
-        public void SetSpecial(Specials s)
+        public void SetSymbol(char symbol)
         {
-            this.location.SetSpecial(s);
+            this.symbol = symbol;
         }
 
-        public Specials GetSpecial()
+        public char GetSymbol()
         {
-            return this.location.GetSpecial();
+            return this.symbol;
         }
 
-        public Location GetLocation()
+        public int[] GetCoords()
         {
-            return this.location;
+            return new int[] { row, column };
         }
     }
 }

@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Collections;
 
-namespace TheseusandMinotaur
+namespace TheseusAndMinotaurLibrary
 {
     public class Maze
     {
         private Tile[][] allTiles;
-        private Location[] allLocations;
         private int height;
         private int width;
         private string name;
@@ -64,7 +63,6 @@ namespace TheseusandMinotaur
         public void CreateMap(int width, int height)
         {
             this.allTiles = new Tile[height][];
-            this.allLocations = new Location[2];
             this.width = width;
             this.height = height;
             int column = 0;
@@ -152,11 +150,6 @@ namespace TheseusandMinotaur
         public int GetHeight()
         {
             return this.height;
-        }
-
-        public Tile[][] GetAllTiles()
-        {
-            return this.allTiles;
         }
     }
 }
