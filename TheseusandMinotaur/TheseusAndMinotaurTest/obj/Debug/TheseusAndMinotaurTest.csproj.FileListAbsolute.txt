@@ -1,0 +1,7 @@
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\obj\Debug\TheseusAndMinotaurTest.csprojResolveAssemblyReference.cache
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\bin\Debug\TheseusAndMinotaurTest.dll
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\bin\Debug\TheseusAndMinotaurTest.pdb
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\bin\Debug\TheseusandMinotaur.exe
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\bin\Debug\TheseusandMinotaur.pdb
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\obj\Debug\TheseusAndMinotaurTest.dll
+C:\Users\Phillip\Desktop\TheseusandMinotaur\TheseusAndMinotaurTest\obj\Debug\TheseusAndMinotaurTest.pdb

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusandMinotaur", "TheseusandMinotaur\TheseusandMinotaur.csproj", "{204A3240-32DA-4620-8D5B-A2AA2C1855F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndMinotaurTest", "TheseusAndMinotaurTest\TheseusAndMinotaurTest.csproj", "{4232548B-3FF9-42DC-91C3-7155FDB95114}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
