@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TheseusAndMinotaurLibrary;
+using TheseusAndMinotaurGameLibrary;
 using System.Diagnostics;
 
 namespace TheseusAndMinotaurTest
