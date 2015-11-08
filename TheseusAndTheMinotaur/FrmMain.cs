@@ -13,10 +13,6 @@ namespace TheseusAndTheMinotaur
         public FrmMain()
         {
             InitializeComponent();
-            this.Hide();
-            SplashScreen ss = new SplashScreen();
-            ss.FormClosing += delegate { this.Show(); };
-            ss.ShowDialog();
         }
 
         private void btnGame_Click(object sender, EventArgs e)
@@ -49,6 +45,14 @@ namespace TheseusAndTheMinotaur
                 new CancelEventArgs().Cancel = false;
              }
              */
+        }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            SplashScreen ss = new SplashScreen();
+            ss.FormClosing += delegate { this.Show(); };
+            ss.ShowDialog();
         }
     }
 }

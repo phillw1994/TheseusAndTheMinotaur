@@ -72,6 +72,7 @@
             this.Controls.Add(this.btnGame);
             this.Name = "FrmMain";
             this.Text = "Theseus and the Minotaur";
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ResumeLayout(false);
 
         }

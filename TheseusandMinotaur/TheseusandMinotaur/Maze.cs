@@ -54,7 +54,6 @@ namespace TheseusAndMinotaurGameLibrary
                 {
                     FirstRow(row, currentMap, realRow);
                     row += 1;
-                    Console.WriteLine("Eexecuted Last Line");
                     LastRow(row, currentMap, realRow);
                 }
                 row += 1;  
@@ -88,7 +87,7 @@ namespace TheseusAndMinotaurGameLibrary
             }
             tile = new Tile(realRow, column);
             tiles.Add(tile);
-            tile.SetSymbol('H');
+            tile.SetSymbol((char)Specials.Hidden);
         }
 
         public void SecondRow(int row, string[] currentMap, int realRow)
@@ -219,6 +218,20 @@ namespace TheseusAndMinotaurGameLibrary
             {
                 int[] coords = t.GetCoords();
                 if (coords[0] == row && coords[1] == column)
+                {
+                    tile = t;
+                }
+            }
+            return tile;
+        }
+
+        public Tile GetTile(char symbol)
+        {
+            Tile tile = null;
+            foreach (Tile t in tiles)
+            {
+                int[] coords = t.GetCoords();
+                if (t.GetSymbol() == symbol)
                 {
                     tile = t;
                 }

@@ -31,6 +31,8 @@ namespace TheseusAndTheMinotaur
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = panel1.CreateGraphics();
+            Pen p;
+            SolidBrush sb;
             this.sizeX = this.maze.GetWidth();
             this.sizeY = this.maze.GetHeight();
             this.squareSize = 50;
@@ -62,6 +64,17 @@ namespace TheseusAndTheMinotaur
                     while (column <= amountOfSquaresX-1)
                     {
                         Tile tile = this.maze.GetTile(row, column);
+
+                        if(tile.GetLeftWall() == true)
+                        {
+                            p = new Pen(Color.Black);
+                            g.DrawLine(p, rectStartLeft, rectStartTop, rectStartLeft, rectEndBottom);
+                        }
+                        if (tile.GetTopWall() == true)
+                        {
+                            p = new Pen(Color.Black);
+                            g.DrawLine(p, rectStartLeft, rectStartTop, rectEndRight, rectStartTop);
+                        }
                         checkChar(tile.GetSymbol(), g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
                         rectStartLeft = rectEndRight;
                         rectEndRight += squareSize;
@@ -79,20 +92,26 @@ namespace TheseusAndTheMinotaur
         public void checkChar(char character, Graphics g, int left, int right, int bottom, int top)
         {
             Pen p;
-            SolidBrush sb;
+            SolidBrush sb, sb2;
             switch (character)
             {
                 case 'M':
-                    //p = new Pen(Color.Black);
+                    p = new Pen(Color.Red);
                     sb = new SolidBrush(Color.LightGray);
+                    sb2 = new SolidBrush(Color.Red);
                     //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
                     g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
+                    g.DrawEllipse(p, left + 5, top + 5, this.squareSize - 10, this.squareSize - 10);
+                    g.FillEllipse(sb2, left + 5, top + 5, this.squareSize - 10, this.squareSize - 10);
                     break;
                 case 'T':
-                    //p = new Pen(Color.Black);
+                    p = new Pen(Color.Lime);
                     sb = new SolidBrush(Color.LightGray);
+                    sb2 = new SolidBrush(Color.Lime);
                     //g.DrawRectangle(p, left, top, this.squareSize, this.squareSize);
                     g.FillRectangle(sb, left + 1, top + 1, this.squareSize - 1, this.squareSize - 1);
+                    g.DrawEllipse(p, left + 5, top + 5, this.squareSize - 10, this.squareSize - 10);
+                    g.FillEllipse(sb2, left + 5, top + 5, this.squareSize - 10, this.squareSize - 10);
                     break;
                 case 'X':
                     //p = new Pen(Color.Black);
@@ -125,8 +144,79 @@ namespace TheseusAndTheMinotaur
             this.maze = new Maze();
             this.maze.LoadMap(map);
             this.tiles = this.maze.GetTiles();
+            foreach (Tile t in this.tiles)
+            {
+                if(t.GetSymbol() == '\0')
+                {
+                    t.SetSymbol((char)Specials.Hidden);
+                }
+            }
             panel1.Paint += new PaintEventHandler(panel1_Paint);
             panel1.Visible = true;
+        }
+
+        private void FrmGame_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up)
+            {
+                Tile tile = this.maze.GetTile((char)Specials.Theseus);
+                int[] coords = tile.GetCoords();
+                Tile tile2 = maze.GetTile(coords[0] - 1, coords[1]);
+                if (tile != null && tile2 != null)
+                {
+                    if (tile2.GetSymbol() != (char)Specials.Hidden)
+                    {
+                        tile2.SetSymbol((char)Specials.Theseus);
+                        tile.SetSymbol((char)Specials.Floor);
+                        panel1.Invalidate();
+                    }
+                }
+            }
+            else if (e.KeyCode == Keys.Left)
+            {
+                Tile tile = this.maze.GetTile((char)Specials.Theseus);
+                int[] coords = tile.GetCoords();
+                Tile tile2 = maze.GetTile(coords[0], coords[1] - 1);
+                if (tile != null && tile2 != null)
+                {
+                    if (tile2.GetSymbol() != (char)Specials.Hidden)
+                    {
+                        tile2.SetSymbol((char)Specials.Theseus);
+                        tile.SetSymbol((char)Specials.Floor);
+                        panel1.Invalidate();
+                    }
+                }
+            }
+            else if (e.KeyCode == Keys.Right)
+            {
+                Tile tile = this.maze.GetTile((char)Specials.Theseus);
+                int[] coords = tile.GetCoords();
+                Tile tile2 = maze.GetTile(coords[0], coords[1] + 1);
+                if (tile != null && tile2 != null)
+                {
+                    if (tile2.GetSymbol() != (char)Specials.Hidden)
+                    {
+                        tile2.SetSymbol((char)Specials.Theseus);
+                        tile.SetSymbol((char)Specials.Floor);
+                        panel1.Invalidate();
+                    }
+                }
+            }
+            else if (e.KeyCode == Keys.Down)
+            {
+                Tile tile = this.maze.GetTile((char)Specials.Theseus);
+                int[] coords = tile.GetCoords();
+                Tile tile2 = maze.GetTile(coords[0] + 1, coords[1]);
+                if (tile != null && tile2 != null)
+                {
+                    if (tile2.GetSymbol() != (char)Specials.Hidden)
+                    {
+                        tile2.SetSymbol((char)Specials.Theseus);
+                        tile.SetSymbol((char)Specials.Floor);
+                        panel1.Invalidate();
+                    }
+                }
+            }
         }
     }
 }
