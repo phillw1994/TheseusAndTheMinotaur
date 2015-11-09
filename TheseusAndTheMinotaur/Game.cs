@@ -11,11 +11,12 @@ namespace TheseusAndTheMinotaur
 {
     class Game
     {
-        IView view;
-        Maze maze;
-        int width;
-        int height;
-        List<Tile> tiles;
+        private IView view;
+        private Maze maze;
+        private int width;
+        private int height;
+        private List<Tile> tiles;
+        private bool gameWin = false;
 
         public Game(IView theView)
         {
@@ -51,21 +52,20 @@ namespace TheseusAndTheMinotaur
         {
             Tile tile, tile2;
             int[] coords;
-
             switch (type)
             {
                 case "Up":
-                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Started Movement Code");
                     tile = this.maze.GetTile((char)Specials.Theseus);
-                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Set Tile");
                     coords = tile.GetCoords();
-                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Got Tile Coords");
                     tile2 = maze.GetTile(coords[0] - 1, coords[1]);
-                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Set Tile 2");
                     if (tile != null && tile2 != null)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
+                            if(tile2.GetSymbol() == (char)Specials.Exit)
+                            {
+                                this.gameWin = true;
+                            }
                             tile2.SetSymbol((char)Specials.Theseus);
                             tile.SetSymbol((char)Specials.Floor);
                         }
@@ -79,6 +79,10 @@ namespace TheseusAndTheMinotaur
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
+                            if (tile2.GetSymbol() == (char)Specials.Exit)
+                            {
+                                this.gameWin = true;
+                            }
                             tile2.SetSymbol((char)Specials.Theseus);
                             tile.SetSymbol((char)Specials.Floor);
                         }
@@ -92,6 +96,10 @@ namespace TheseusAndTheMinotaur
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
+                            if (tile2.GetSymbol() == (char)Specials.Exit)
+                            {
+                                this.gameWin = true;
+                            }
                             tile2.SetSymbol((char)Specials.Theseus);
                             tile.SetSymbol((char)Specials.Floor);
                         }
@@ -105,6 +113,10 @@ namespace TheseusAndTheMinotaur
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
+                            if (tile2.GetSymbol() == (char)Specials.Exit)
+                            {
+                                this.gameWin = true;
+                            }
                             tile2.SetSymbol((char)Specials.Theseus);
                             tile.SetSymbol((char)Specials.Floor);
                         }
@@ -126,6 +138,11 @@ namespace TheseusAndTheMinotaur
         public Tile GetTile(int row, int column)
         {
             return this.maze.GetTile(row, column);
+        }
+
+        public bool GetGameWin()
+        {
+            return this.gameWin;
         }
 
     }

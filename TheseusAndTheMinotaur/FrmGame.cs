@@ -14,7 +14,6 @@ namespace TheseusAndTheMinotaur
         private int sizeX;
         private int sizeY;
         private int squareSize;
-        private bool fileOpened;
         private Game game;
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
@@ -143,25 +142,32 @@ namespace TheseusAndTheMinotaur
 
         private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
+            if (game.GetGameWin() != true)
             {
-                this.game.Movement("Up");
-                panel1.Invalidate();
+                if (e.KeyCode == Keys.Up)
+                {
+                    this.game.Movement("Up");
+                    panel1.Invalidate();
+                }
+                else if (e.KeyCode == Keys.Left)
+                {
+                    this.game.Movement("Left");
+                    panel1.Invalidate();
+                }
+                else if (e.KeyCode == Keys.Right)
+                {
+                    this.game.Movement("Right");
+                    panel1.Invalidate();
+                }
+                else if (e.KeyCode == Keys.Down)
+                {
+                    this.game.Movement("Down");
+                    panel1.Invalidate();
+                }
             }
-            else if (e.KeyCode == Keys.Left)
+            else
             {
-                this.game.Movement("Left");
-                panel1.Invalidate();
-            }
-            else if (e.KeyCode == Keys.Right)
-            {
-                this.game.Movement("Right");
-                panel1.Invalidate();
-            }
-            else if (e.KeyCode == Keys.Down)
-            {
-                this.game.Movement("Down");
-                panel1.Invalidate();
+                MessageBox.Show("Well done you have completed the maze", "Winner!!!", MessageBoxButtons.OK);
             }
         }
 
