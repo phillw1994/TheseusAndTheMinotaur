@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheseusAndMinotaurGameLibrary;
+using System.Diagnostics;
+using System.IO;
 
 namespace TheseusAndTheMinotaur
 {
@@ -53,9 +55,15 @@ namespace TheseusAndTheMinotaur
             switch (type)
             {
                 case "Up":
+                    Debug.WriteLine("Started Movement Code");
+                    File.WriteAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", string.Empty);
+                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Started Movement Code");
                     tile = this.maze.GetTile((char)Specials.Theseus);
+                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Set Tile");
                     coords = tile.GetCoords();
+                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Got Tile Coords");
                     tile2 = maze.GetTile(coords[0] - 1, coords[1]);
+                    File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Set Tile 2");
                     if (tile != null && tile2 != null)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
