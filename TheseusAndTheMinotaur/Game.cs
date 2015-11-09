@@ -55,8 +55,6 @@ namespace TheseusAndTheMinotaur
             switch (type)
             {
                 case "Up":
-                    Debug.WriteLine("Started Movement Code");
-                    File.WriteAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", string.Empty);
                     File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Started Movement Code");
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     File.AppendAllText(System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\log.txt", "Set Tile");
