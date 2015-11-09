@@ -85,8 +85,9 @@
             // tsmiClose
             // 
             this.tsmiClose.Name = "tsmiClose";
-            this.tsmiClose.Size = new System.Drawing.Size(159, 30);
+            this.tsmiClose.Size = new System.Drawing.Size(211, 30);
             this.tsmiClose.Text = "&Close";
+            this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
             // panel1
             // 
@@ -100,6 +101,7 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
             this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // FrmGame
             // 
@@ -108,11 +110,11 @@
             this.ClientSize = new System.Drawing.Size(1039, 743);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
             this.Name = "FrmGame";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Theseus and the Minotaur Game";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmGame_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmGame_KeyUp);
             this.menuStrip1.ResumeLayout(false);

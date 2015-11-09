@@ -10,14 +10,24 @@ using System.Diagnostics;
 
 namespace TheseusAndTheMinotaur
 {
-    public partial class FrmGame : Form
+    public partial class FrmGame : Form, IView
     {
         private int sizeX;
         private int sizeY;
         private int squareSize;
         private bool fileOpened;
         private List<Tile> tiles;
-        private Maze maze;
+        private Game game;
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
 
         public FrmGame()
         {
@@ -33,8 +43,8 @@ namespace TheseusAndTheMinotaur
             Graphics g = panel1.CreateGraphics();
             Pen p;
             SolidBrush sb;
-            this.sizeX = this.maze.GetWidth();
-            this.sizeY = this.maze.GetHeight();
+            this.sizeX = this.game.GetWidth();
+            this.sizeY = this.game.GetHeight();
             this.squareSize = 50;
 
             if (this.sizeX > 0 && this.sizeY > 0)
@@ -63,7 +73,7 @@ namespace TheseusAndTheMinotaur
                     rectEndRight += squareSize;
                     while (column <= amountOfSquaresX-1)
                     {
-                        Tile tile = this.maze.GetTile(row, column);
+                        Tile tile = this.game.GetTile(row, column);
 
                         if(tile.GetLeftWall() == true)
                         {
@@ -132,91 +142,49 @@ namespace TheseusAndTheMinotaur
 
         private void FrmGame_Load(object sender, EventArgs e)
         {
-            string map =
-            ".___.___.___." + "\n" +
-            "|     M     |" + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|       |     X  " + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|     T     |" + "\n" +
-            ".___.___.___.";
+            this.game = new Game(this);
+            this.game.Go();
+        }
 
-            this.maze = new Maze();
-            this.maze.LoadMap(map);
-            this.tiles = this.maze.GetTiles();
-            foreach (Tile t in this.tiles)
-            {
-                if(t.GetSymbol() == '\0')
-                {
-                    t.SetSymbol((char)Specials.Hidden);
-                }
-            }
+        public void Start()
+        {
             panel1.Paint += new PaintEventHandler(panel1_Paint);
             panel1.Visible = true;
         }
+
 
         private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up)
             {
-                Tile tile = this.maze.GetTile((char)Specials.Theseus);
-                int[] coords = tile.GetCoords();
-                Tile tile2 = maze.GetTile(coords[0] - 1, coords[1]);
-                if (tile != null && tile2 != null)
-                {
-                    if (tile2.GetSymbol() != (char)Specials.Hidden)
-                    {
-                        tile2.SetSymbol((char)Specials.Theseus);
-                        tile.SetSymbol((char)Specials.Floor);
-                        panel1.Invalidate();
-                    }
-                }
+                this.game.Movement("Up");
+                panel1.Invalidate();
             }
             else if (e.KeyCode == Keys.Left)
             {
-                Tile tile = this.maze.GetTile((char)Specials.Theseus);
-                int[] coords = tile.GetCoords();
-                Tile tile2 = maze.GetTile(coords[0], coords[1] - 1);
-                if (tile != null && tile2 != null)
-                {
-                    if (tile2.GetSymbol() != (char)Specials.Hidden)
-                    {
-                        tile2.SetSymbol((char)Specials.Theseus);
-                        tile.SetSymbol((char)Specials.Floor);
-                        panel1.Invalidate();
-                    }
-                }
+                this.game.Movement("Left");
+                panel1.Invalidate();
             }
             else if (e.KeyCode == Keys.Right)
             {
-                Tile tile = this.maze.GetTile((char)Specials.Theseus);
-                int[] coords = tile.GetCoords();
-                Tile tile2 = maze.GetTile(coords[0], coords[1] + 1);
-                if (tile != null && tile2 != null)
-                {
-                    if (tile2.GetSymbol() != (char)Specials.Hidden)
-                    {
-                        tile2.SetSymbol((char)Specials.Theseus);
-                        tile.SetSymbol((char)Specials.Floor);
-                        panel1.Invalidate();
-                    }
-                }
+                this.game.Movement("Right");
+                panel1.Invalidate();
             }
             else if (e.KeyCode == Keys.Down)
             {
-                Tile tile = this.maze.GetTile((char)Specials.Theseus);
-                int[] coords = tile.GetCoords();
-                Tile tile2 = maze.GetTile(coords[0] + 1, coords[1]);
-                if (tile != null && tile2 != null)
-                {
-                    if (tile2.GetSymbol() != (char)Specials.Hidden)
-                    {
-                        tile2.SetSymbol((char)Specials.Theseus);
-                        tile.SetSymbol((char)Specials.Floor);
-                        panel1.Invalidate();
-                    }
-                }
+                this.game.Movement("Down");
+                panel1.Invalidate();
             }
+        }
+
+        private void tsmiClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This App uses the keyboard Up, Down, Left, Right buttons to move Theseus around the maze", "Help", MessageBoxButtons.OK);
         }
     }
 }
