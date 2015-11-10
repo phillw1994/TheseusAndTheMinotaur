@@ -24,28 +24,8 @@ namespace TheseusAndTheMinotaur
         }
         public void Go()
         {
-            string map =
-            ".___.___.___." + "\n" +
-            "|     M     |" + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|       |     X  " + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|     T     |" + "\n" +
-            ".___.___.___.";
-
-            this.maze = new Maze();
-            this.maze.LoadMap(map);
-            this.tiles = this.maze.GetTiles();
-            foreach (Tile t in this.tiles)
-            {
-                if (t.GetSymbol() == '\0')
-                {
-                    t.SetSymbol((char)Specials.Hidden);
-                }
-            }
-            this.height = this.maze.GetHeight();
-            this.width = this.maze.GetWidth();
             this.view.Start();
+            this.maze = new Maze();
         }
 
         public void Movement(string type)
@@ -56,18 +36,20 @@ namespace TheseusAndTheMinotaur
             {
                 case "Up":
                     tile = this.maze.GetTile((char)Specials.Theseus);
-                    coords = tile.GetCoords();
-                    tile2 = maze.GetTile(coords[0] - 1, coords[1]);
-                    if (tile != null && tile2 != null)
-                    {
-                        if (tile2.GetSymbol() != (char)Specials.Hidden)
+                    if (tile.GetTopWall() != true) {
+                        coords = tile.GetCoords();
+                        tile2 = maze.GetTile(coords[0] - 1, coords[1]);
+                        if (tile != null && tile2 != null)
                         {
-                            if(tile2.GetSymbol() == (char)Specials.Exit)
+                            if (tile2.GetSymbol() != (char)Specials.Hidden)
                             {
-                                this.gameWin = true;
+                                if (tile2.GetSymbol() == (char)Specials.Exit)
+                                {
+                                    this.gameWin = true;
+                                }
+                                tile2.SetSymbol((char)Specials.Theseus);
+                                tile.SetSymbol((char)Specials.Floor);
                             }
-                            tile2.SetSymbol((char)Specials.Theseus);
-                            tile.SetSymbol((char)Specials.Floor);
                         }
                     }
                     break;
@@ -75,7 +57,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0] + 1, coords[1]);
-                    if (tile != null && tile2 != null)
+                    if (tile != null && tile2 != null && tile2.GetTopWall() != true)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
@@ -92,7 +74,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0], coords[1] - 1);
-                    if (tile != null && tile2 != null)
+                    if (tile != null && tile2 != null && tile.GetLeftWall() != true)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
@@ -109,7 +91,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0], coords[1] + 1);
-                    if (tile != null && tile2 != null)
+                    if (tile != null && tile2 != null && tile2.GetLeftWall() != true)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
@@ -143,6 +125,21 @@ namespace TheseusAndTheMinotaur
         public bool GetGameWin()
         {
             return this.gameWin;
+        }
+
+        public void LoadMap(string[] mapString)
+        {
+            this.maze.LoadMap(mapString);
+            tiles = this.maze.GetTiles();
+            foreach (Tile t in this.tiles)
+            {
+                if (t.GetSymbol() == '\0')
+                {
+                    t.SetSymbol((char)Specials.Hidden);
+                }
+            }
+            this.height = this.maze.GetHeight();
+            this.width = this.maze.GetWidth();
         }
 
     }

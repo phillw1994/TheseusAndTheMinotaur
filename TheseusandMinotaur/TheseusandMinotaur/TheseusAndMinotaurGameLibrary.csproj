@@ -45,13 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller.cs" />
     <Compile Include="CView.cs" />
     <Compile Include="InvalidMapStringException.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="Specials.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tile.cs" />
   </ItemGroup>

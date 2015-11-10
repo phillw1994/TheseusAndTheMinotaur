@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24627.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndTheMinotaur", "TheseusAndTheMinotaur\TheseusAndTheMinotaur.csproj", "{5C277ACC-6C2A-4747-82D4-1CA2D7DF390F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndMinotaurGameLibrary", "TheseusandMinotaur\TheseusandMinotaur\TheseusAndMinotaurGameLibrary.csproj", "{204A3240-32DA-4620-8D5B-A2AA2C1855F3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndMinotaurTest", "TheseusandMinotaur\TheseusAndMinotaurTest\TheseusAndMinotaurTest.csproj", "{4232548B-3FF9-42DC-91C3-7155FDB95114}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{204A3240-32DA-4620-8D5B-A2AA2C1855F3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4232548B-3FF9-42DC-91C3-7155FDB95114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,20 +19,11 @@ namespace TheseusAndMinotaurGameLibrary
         /// Creates a map from a Map String
         /// </summary>
         /// <param name="mapString"></param>
-        public void LoadMap(string mapString)
+        public void LoadMap(string[] mapString)
         {
             int row = 0;
-            int column = 0;
-            /*string map =
-            ".___.___.___." + "\n" +
-            "|     M     |" + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|       |     X  " + "\n" +
-            ".   .___.   .___." + "\n" +
-            "|     T     |" + "\n" +
-            ".___.___.___.";*/
 
-            string[] currentMap = mapString.Split('\n');
+            string[] currentMap = mapString;
             int realRow = 0;
 
             while (row <= currentMap.Length-1)
@@ -134,12 +125,6 @@ namespace TheseusAndMinotaurGameLibrary
                     tile.SetSymbol((char)Specials.Exit);
                     column += 1;
                 }
-                /*else
-                {
-                    tile = this.GetTile(realRow, column);
-                    tile.SetSymbol((char)Specials.Floor);
-                    column += 1;
-                }*/
             }
         }
 

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TheseusAndMinotaurGameLibrary;
+using System.IO;
 
 namespace TheseusAndTheMinotaur
 {
@@ -15,6 +16,7 @@ namespace TheseusAndTheMinotaur
         private int sizeY;
         private int squareSize;
         private Game game;
+        private Filer filer;
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -142,33 +144,35 @@ namespace TheseusAndTheMinotaur
 
         private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
-            if (game.GetGameWin() != true)
-            {
-                if (e.KeyCode == Keys.Up)
+            if (e.KeyCode != Keys.Enter) {
+                if (game.GetGameWin() != true)
                 {
-                    this.game.Movement("Up");
-                    panel1.Invalidate();
+                    if (e.KeyCode == Keys.Up)
+                    {
+                        this.game.Movement("Up");
+                        panel1.Invalidate();
+                    }
+                    else if (e.KeyCode == Keys.Left)
+                    {
+                        this.game.Movement("Left");
+                        panel1.Invalidate();
+                    }
+                    else if (e.KeyCode == Keys.Right)
+                    {
+                        this.game.Movement("Right");
+                        panel1.Invalidate();
+                    }
+                    else if (e.KeyCode == Keys.Down)
+                    {
+                        this.game.Movement("Down");
+                        panel1.Invalidate();
+                    }
                 }
-                else if (e.KeyCode == Keys.Left)
+                else
                 {
-                    this.game.Movement("Left");
-                    panel1.Invalidate();
+                    MessageBox.Show("Well done you have completed the maze", "Winner!!!", MessageBoxButtons.OK);
                 }
-                else if (e.KeyCode == Keys.Right)
-                {
-                    this.game.Movement("Right");
-                    panel1.Invalidate();
-                }
-                else if (e.KeyCode == Keys.Down)
-                {
-                    this.game.Movement("Down");
-                    panel1.Invalidate();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Well done you have completed the maze", "Winner!!!", MessageBoxButtons.OK);
-            }
+        }
         }
 
         private void tsmiClose_Click(object sender, EventArgs e)
@@ -179,6 +183,37 @@ namespace TheseusAndTheMinotaur
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This App uses the keyboard Up, Down, Left, Right buttons to move Theseus around the maze", "Help", MessageBoxButtons.OK);
+        }
+
+        private void tsmiOpen_Click(object sender, EventArgs e)
+        {
+            this.game = new Game(this);
+            this.game.Go();
+            OpenFileDialog opfd = new OpenFileDialog();
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            opfd.Filter = "Theseus and Minotaur Files (.tam)|*.tam|All files (*.*)|*.*";
+            opfd.FilterIndex = 1;
+            opfd.Multiselect = false;
+            //theDialog.Title = "Open Text File";
+            opfd.InitialDirectory = @"C:\Users\" + userName + @"\Documents\";
+
+            if (opfd.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((opfd.OpenFile()) != null)
+                    {
+                        string filename = opfd.FileName;
+                        string[] filelines = File.ReadAllLines(filename);
+                        this.game.LoadMap(filelines);
+                        this.panel1.Invalidate();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
         }
     }
 }

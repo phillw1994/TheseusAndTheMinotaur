@@ -31,11 +31,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiSaveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClose = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.resetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,8 +54,7 @@
             // 
             this.tsmiFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiOpen,
-            this.tsmiSave,
-            this.tsmiSaveAs,
+            this.resetToolStripMenuItem,
             this.tsmiClose});
             this.tsmiFile.Name = "tsmiFile";
             this.tsmiFile.Size = new System.Drawing.Size(50, 29);
@@ -65,22 +63,9 @@
             // tsmiOpen
             // 
             this.tsmiOpen.Name = "tsmiOpen";
-            this.tsmiOpen.Size = new System.Drawing.Size(159, 30);
+            this.tsmiOpen.Size = new System.Drawing.Size(211, 30);
             this.tsmiOpen.Text = "&Open";
-            // 
-            // tsmiSave
-            // 
-            this.tsmiSave.Enabled = false;
-            this.tsmiSave.Name = "tsmiSave";
-            this.tsmiSave.Size = new System.Drawing.Size(159, 30);
-            this.tsmiSave.Text = "&Save";
-            // 
-            // tsmiSaveAs
-            // 
-            this.tsmiSaveAs.Enabled = false;
-            this.tsmiSaveAs.Name = "tsmiSaveAs";
-            this.tsmiSaveAs.Size = new System.Drawing.Size(159, 30);
-            this.tsmiSaveAs.Text = "&Save As";
+            this.tsmiOpen.Click += new System.EventHandler(this.tsmiOpen_Click);
             // 
             // tsmiClose
             // 
@@ -89,6 +74,13 @@
             this.tsmiClose.Text = "&Close";
             this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
+            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(13, 49);
@@ -96,12 +88,11 @@
             this.panel1.Size = new System.Drawing.Size(1014, 563);
             this.panel1.TabIndex = 1;
             // 
-            // helpToolStripMenuItem
+            // resetToolStripMenuItem
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
-            this.helpToolStripMenuItem.Text = "&Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(211, 30);
+            this.resetToolStripMenuItem.Text = "&Reset Level";
             // 
             // FrmGame
             // 
@@ -129,11 +120,10 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiFile;
         private System.Windows.Forms.ToolStripMenuItem tsmiOpen;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSave;
-        private System.Windows.Forms.ToolStripMenuItem tsmiSaveAs;
         private System.Windows.Forms.ToolStripMenuItem tsmiClose;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
     }
 }
 
