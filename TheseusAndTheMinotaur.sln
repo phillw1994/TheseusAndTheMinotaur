@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.24627.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndTheMinotaur", "TheseusAndTheMinotaur\TheseusAndTheMinotaur.csproj", "{5C277ACC-6C2A-4747-82D4-1CA2D7DF390F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndMinotaurGameLibrary", "TheseusandMinotaur\TheseusandMinotaur\TheseusAndMinotaurGameLibrary.csproj", "{204A3240-32DA-4620-8D5B-A2AA2C1855F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheseusAndTheMinotaur.Library", "TheseusandMinotaur\TheseusandMinotaur\TheseusAndTheMinotaur.Library.csproj", "{204A3240-32DA-4620-8D5B-A2AA2C1855F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

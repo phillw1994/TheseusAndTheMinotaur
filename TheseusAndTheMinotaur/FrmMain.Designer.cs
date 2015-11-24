@@ -55,6 +55,7 @@
             this.btnEditor.TabIndex = 1;
             this.btnEditor.Text = "Editor";
             this.btnEditor.UseVisualStyleBackColor = true;
+            this.btnEditor.Click += new System.EventHandler(this.btnEditor_Click);
             // 
             // btnClose
             // 

@@ -7,8 +7,8 @@
     <ProjectGuid>{204A3240-32DA-4620-8D5B-A2AA2C1855F3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TheseusAndMinotaurGameLibrary</RootNamespace>
-    <AssemblyName>TheseusAndMinotaurGameLibrary</AssemblyName>
+    <RootNamespace>TheseusAndTheMInotaur.Library</RootNamespace>
+    <AssemblyName>TheseusAndTheMInotaur.Library</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CView.cs" />
+    <Compile Include="Editor.cs" />
     <Compile Include="InvalidMapStringException.cs" />
     <Compile Include="IView.cs" />
     <Compile Include="Specials.cs" />

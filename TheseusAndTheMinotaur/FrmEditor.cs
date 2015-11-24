@@ -5,18 +5,17 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using TheseusAndTheMinotaur.Library;
 using System.IO;
+using TheseusAndTheMinotaur.Library;
 
 namespace TheseusAndTheMinotaur
 {
-    public partial class FrmGame : Form, IView
+    public partial class FrmEditor : Form, IView
     {
-        private int sizeX;
-        private int sizeY;
-        private int squareSize;
-        private Game game;
-        private Filer filer;
+        int sizeX;
+        int sizeY;
+        int squareSize;
+        Editor editor;
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -28,7 +27,7 @@ namespace TheseusAndTheMinotaur
             }
         }
 
-        public FrmGame()
+        public FrmEditor()
         {
             InitializeComponent();
         }
@@ -36,9 +35,9 @@ namespace TheseusAndTheMinotaur
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = panel1.CreateGraphics();
-            Pen p;
-            this.sizeX = this.game.GetWidth();
-            this.sizeY = this.game.GetHeight();
+            //Pen p;
+            this.sizeX = this.editor.GetWidth();
+            this.sizeY = this.editor.GetHeight();
             this.squareSize = 50;
 
             if (this.sizeX > 0 && this.sizeY > 0)
@@ -61,13 +60,13 @@ namespace TheseusAndTheMinotaur
                 int rectStartTop = columnTop;
                 int rectEndBottom = rectStartTop;
 
-                while (row <= amountOfSquaresY)
+                while (row <= amountOfSquaresY-1)
                 {
                     rectEndBottom += squareSize;
                     rectEndRight += squareSize;
                     while (column <= amountOfSquaresX-1)
                     {
-                        Tile tile = this.game.GetTile(row, column);
+                        /*Tile tile = this.game.GetTile(row, column);
                         if (tile != null) {
                             if (tile.GetLeftWall() == true)
                             {
@@ -78,11 +77,11 @@ namespace TheseusAndTheMinotaur
                             {
                                 p = new Pen(Color.Black);
                                 g.DrawLine(p, rectStartLeft, rectStartTop, rectEndRight, rectStartTop);
-                            }
-                            checkChar(tile.GetSymbol(), g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
+                            }*/
+                            checkChar('-', g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
                             rectStartLeft = rectEndRight;
                             rectEndRight += squareSize;
-                        }
+                        //}
                         column += 1;
                     }
                     rectStartTop = rectEndBottom;
@@ -131,48 +130,17 @@ namespace TheseusAndTheMinotaur
 
         private void FrmGame_Load(object sender, EventArgs e)
         {
-            this.game = new Game(this);
-            this.game.Go();
+            this.editor = new Editor(this);
+            this.sizeX = 0;
+            this.sizeY = 0;
+            this.squareSize = 0;
+            this.editor.Go();
         }
 
         public void Start()
         {
             panel1.Paint += new PaintEventHandler(panel1_Paint);
             panel1.Visible = true;
-        }
-
-
-        private void FrmGame_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode != Keys.Enter) {
-                if (game.GetGameWin() != true)
-                {
-                    if (e.KeyCode == Keys.Up)
-                    {
-                        this.game.Movement("Up");
-                        panel1.Invalidate();
-                    }
-                    else if (e.KeyCode == Keys.Left)
-                    {
-                        this.game.Movement("Left");
-                        panel1.Invalidate();
-                    }
-                    else if (e.KeyCode == Keys.Right)
-                    {
-                        this.game.Movement("Right");
-                        panel1.Invalidate();
-                    }
-                    else if (e.KeyCode == Keys.Down)
-                    {
-                        this.game.Movement("Down");
-                        panel1.Invalidate();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Well done you have completed the maze", "Winner!!!", MessageBoxButtons.OK);
-                }
-        }
         }
 
         private void tsmiClose_Click(object sender, EventArgs e)
@@ -182,38 +150,17 @@ namespace TheseusAndTheMinotaur
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This App uses the keyboard Up, Down, Left, Right buttons to move Theseus around the maze", "Help", MessageBoxButtons.OK);
+            MessageBox.Show("Game Editor\nWelcome to the game editor this is under construction", "Help", MessageBoxButtons.OK);
         }
 
-        private void tsmiOpen_Click(object sender, EventArgs e)
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.game = new Game(this);
-            this.game.Go();
-            OpenFileDialog opfd = new OpenFileDialog();
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            opfd.Filter = "Theseus and Minotaur Files (.tam)|*.tam|All files (*.*)|*.*";
-            opfd.FilterIndex = 1;
-            opfd.Multiselect = false;
-            //theDialog.Title = "Open Text File";
-            opfd.InitialDirectory = @"C:\Users\" + userName + @"\Documents\";
-
-            if (opfd.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    if ((opfd.OpenFile()) != null)
-                    {
-                        string filename = opfd.FileName;
-                        string[] filelines = File.ReadAllLines(filename);
-                        this.game.LoadMap(filelines);
-                        this.panel1.Invalidate();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
-                }
-            }
+            this.editor = new Editor(this);
+            FrmNewMaze frmNewMaze = new FrmNewMaze();
+            frmNewMaze.FormClosing += delegate {  this.editor.SetWidth(frmNewMaze.GetWidth()); this.editor.SetHeight(frmNewMaze.GetHeight()); };
+            frmNewMaze.ShowDialog();
+            //this.editor.Go();
+            panel1.Invalidate();
         }
     }
 }

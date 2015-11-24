@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheseusAndMinotaurGameLibrary
+namespace TheseusAndTheMinotaur
 {
-    interface IView
+    public interface IView
     {
-        void Say<T>(T message);
-        string Get();
+        void Start();
+
+        //void Stop();
     }
 }

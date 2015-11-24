@@ -1,0 +1,5 @@
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.dll.config
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.dll
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.pdb
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.dll
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.pdb

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Collections;
 
-namespace TheseusAndMinotaurGameLibrary
+namespace TheseusAndTheMinotaur.Library
 {
     public class Maze
     {
