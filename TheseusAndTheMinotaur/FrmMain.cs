@@ -78,5 +78,19 @@ namespace TheseusAndTheMinotaur
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var prior = Form.ActiveForm;
+            using (var dlg = new FrmFiler())
+            {
+                dlg.FormClosing += delegate { prior.Show(); };
+                prior.Hide();
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("result");
+                }
+            }
+        }
     }
 }

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TheseusAndTheMinotaur</RootNamespace>
     <AssemblyName>TheseusAndTheMinotaur</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -50,6 +50,12 @@
     <Compile Include="FrmEditor.Designer.cs">
       <DependentUpon>FrmEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmFiler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFiler.Designer.cs">
+      <DependentUpon>FrmFiler.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </Compile>
     <EmbeddedResource Include="FrmEditor.resx">
       <DependentUpon>FrmEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFiler.resx">
+      <DependentUpon>FrmFiler.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGame.resx">
       <DependentUpon>FrmGame.cs</DependentUpon>

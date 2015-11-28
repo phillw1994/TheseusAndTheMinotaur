@@ -39,7 +39,7 @@ namespace TheseusAndTheMinotaur
                     if (tile.GetTopWall() != true) {
                         coords = tile.GetCoords();
                         tile2 = maze.GetTile(coords[0] - 1, coords[1]);
-                        if (tile != null && tile2 != null)
+                        if (tile != null && tile2 != null && tile2.GetSymbol() != (char)Specials.Minotaur)
                         {
                             if (tile2.GetSymbol() != (char)Specials.Hidden)
                             {
@@ -57,7 +57,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0] + 1, coords[1]);
-                    if (tile != null && tile2 != null && tile2.GetTopWall() != true)
+                    if (tile != null && tile2 != null && tile2.GetTopWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
@@ -74,7 +74,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0], coords[1] - 1);
-                    if (tile != null && tile2 != null && tile.GetLeftWall() != true)
+                    if (tile != null && tile2 != null && tile.GetLeftWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
@@ -91,7 +91,7 @@ namespace TheseusAndTheMinotaur
                     tile = this.maze.GetTile((char)Specials.Theseus);
                     coords = tile.GetCoords();
                     tile2 = maze.GetTile(coords[0], coords[1] + 1);
-                    if (tile != null && tile2 != null && tile2.GetLeftWall() != true)
+                    if (tile != null && tile2 != null && tile2.GetLeftWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                     {
                         if (tile2.GetSymbol() != (char)Specials.Hidden)
                         {
