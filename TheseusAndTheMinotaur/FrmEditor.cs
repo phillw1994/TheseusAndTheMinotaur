@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using TheseusAndTheMinotaur.Library;
+using System.Diagnostics;
 
 namespace TheseusAndTheMinotaur
 {
@@ -30,6 +31,8 @@ namespace TheseusAndTheMinotaur
         public FrmEditor()
         {
             InitializeComponent();
+            panel1.Click += new System.EventHandler(this.panel_Click);
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -47,17 +50,12 @@ namespace TheseusAndTheMinotaur
                 int amountOfSquaresY = this.sizeY;
                 int gridHeight = amountOfSquaresY * squareSize;
                 int gridWidth = amountOfSquaresX * squareSize;
-
-                int columnTop = (this.panel1.Height - gridHeight) / 2;
-                int columnBottom = this.panel1.Height - columnTop;
-                int columnLeft = (this.panel1.Width - gridWidth) / 2;
-                int columnRight = this.panel1.Width - columnLeft;
-
+                this.panel1.Size = new System.Drawing.Size(gridWidth, gridHeight);
                 int column = 0;
                 int row = 0;
-                int rectStartLeft = columnLeft;
+                int rectStartLeft = 0;
                 int rectEndRight = rectStartLeft;
-                int rectStartTop = columnTop;
+                int rectStartTop = 0;
                 int rectEndBottom = rectStartTop;
 
                 while (row <= amountOfSquaresY-1)
@@ -85,8 +83,8 @@ namespace TheseusAndTheMinotaur
                         column += 1;
                     }
                     rectStartTop = rectEndBottom;
-                    rectStartLeft = columnLeft;
-                    rectEndRight = columnLeft;
+                    rectStartLeft = 0;
+                    rectEndRight = 0;
                     column = 0;
                     row += 1;
                 }
@@ -160,7 +158,108 @@ namespace TheseusAndTheMinotaur
             frmNewMaze.FormClosing += delegate {  this.editor.SetWidth(frmNewMaze.GetWidth()); this.editor.SetHeight(frmNewMaze.GetHeight()); };
             frmNewMaze.ShowDialog();
             //this.editor.Go();
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = true;
             panel1.Invalidate();
+        }
+
+        public void PanelRefresh()
+        {
+            panel1.Invalidate();
+        }
+
+        private void btnHorizontalWall_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = false;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = true;
+            this.btnCursor.Enabled = true;
+        }
+
+        private void btnVerticalWall_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = false;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = true;
+            this.btnCursor.Enabled = true;
+        }
+
+        private void btnTheseus_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = false;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = true;
+            this.btnCursor.Enabled = true;
+        }
+
+        private void btnMinotaur_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = false;
+            this.btnExit.Enabled = true;
+            this.btnCursor.Enabled = true;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = false;
+            this.btnCursor.Enabled = true;
+        }
+
+        private void btnCursor_Click(object sender, EventArgs e)
+        {
+            this.btnHorizontalWall.Enabled = true;
+            this.btnVerticalWall.Enabled = true;
+            this.btnTheseus.Enabled = true;
+            this.btnMinotaur.Enabled = true;
+            this.btnExit.Enabled = true;
+            this.btnCursor.Enabled = false;
+        }
+
+        private void panel_Click(object sender, EventArgs e)
+        {
+            Point point = panel1.PointToClient(Cursor.Position);
+            int i = 0;
+            int amountSquaresX = 0;
+            while (i <= point.X)
+            {
+                if (i != 0)
+                {
+                    amountSquaresX += 1;
+                }
+                i += this.squareSize;
+            }
+            i = 0;
+            int amountSquaresY = 0;
+            while (i <= point.Y)
+            {
+                if (i != 0)
+                {
+                    amountSquaresY += 1;
+                }
+                i += this.squareSize;
+            }
+
+            //Needs to get currently selected tile to deselect it if needed
+            //Draw the currently selected tile and others
+            MessageBox.Show(point.ToString());
+            Debug.WriteLine("Amount Squares X: " + amountSquaresX);
+            Debug.WriteLine("Amount Squares Y: " + amountSquaresY);
         }
     }
 }

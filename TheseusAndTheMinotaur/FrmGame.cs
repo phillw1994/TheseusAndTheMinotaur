@@ -145,34 +145,72 @@ namespace TheseusAndTheMinotaur
         private void FrmGame_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode != Keys.Enter) {
-                if (game.GetGameWin() != true)
+                if (game.GetGameWin() != true && game.GetGameLoss() != true)
                 {
                     if (e.KeyCode == Keys.Up)
                     {
-                        this.game.Movement("Up");
+                        this.game.TheseusMovement("Up");
                         panel1.Invalidate();
+                        this.game.MinotaurMovement("Up");
+                        Timer timer2 = new Timer();
+                        timer2.Interval = 800;
+                        timer2.Tick += new EventHandler(MinotaurMove);
+                        timer2.Enabled = true;
+                        timer2.Start();
                     }
                     else if (e.KeyCode == Keys.Left)
                     {
-                        this.game.Movement("Left");
+                        this.game.TheseusMovement("Left");
                         panel1.Invalidate();
+                        this.game.MinotaurMovement("Left");
+                        Timer timer2 = new Timer();
+                        timer2.Interval = 800;
+                        timer2.Tick += new EventHandler(MinotaurMove);
+                        timer2.Enabled = true;
+                        timer2.Start();
                     }
                     else if (e.KeyCode == Keys.Right)
                     {
-                        this.game.Movement("Right");
+                        this.game.TheseusMovement("Right");
                         panel1.Invalidate();
+                        this.game.MinotaurMovement("Right");
+                        Timer timer2 = new Timer();
+                        timer2.Interval = 800;
+                        timer2.Tick += new EventHandler(MinotaurMove);
+                        timer2.Enabled = true;
+                        timer2.Start();
+                        
                     }
                     else if (e.KeyCode == Keys.Down)
                     {
-                        this.game.Movement("Down");
+                        this.game.TheseusMovement("Down");
                         panel1.Invalidate();
+                        this.game.MinotaurMovement("Down");
+                        Timer timer2 = new Timer();
+                        timer2.Interval = 800;
+                        timer2.Tick += new EventHandler(MinotaurMove);
+                        timer2.Enabled = true;
+                        timer2.Start();
+
                     }
                 }
-                else
+                else if(game.GetGameWin() == true)
                 {
                     MessageBox.Show("Well done you have completed the maze", "Winner!!!", MessageBoxButtons.OK);
                 }
+                else if (game.GetGameLoss() == true)
+                {
+                    MessageBox.Show("You have failed to complete the maze. The Minotaur caught you\n\nPlease restart the level to continue", "You have failed!!!", MessageBoxButtons.OK);
+                }
         }
+        }
+
+
+        private void MinotaurMove(object source, EventArgs e)
+        {
+            this.game.MinotaurMovement("Up");
+            Timer timer = (Timer)source;
+            timer.Stop();
         }
 
         private void tsmiClose_Click(object sender, EventArgs e)
@@ -214,6 +252,11 @@ namespace TheseusAndTheMinotaur
                     MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
                 }
             }
+        }
+
+        public void PanelRefresh()
+        {
+            panel1.Invalidate();
         }
     }
 }

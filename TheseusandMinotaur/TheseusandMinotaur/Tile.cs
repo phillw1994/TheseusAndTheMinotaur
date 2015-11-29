@@ -13,6 +13,7 @@ namespace TheseusAndTheMinotaur.Library
         private bool topWall;
         private bool leftWall;
         private char symbol;
+        private bool selected;
 
         public Tile(int row, int column)
         {
@@ -53,6 +54,16 @@ namespace TheseusAndTheMinotaur.Library
         public int[] GetCoords()
         {
             return new int[] { row, column };
+        }
+        
+        public void SetSelected(bool selected)
+        {
+            this.selected = selected;
+        }
+
+        public bool GetSelected()
+        {
+            return this.selected;
         }
     }
 }

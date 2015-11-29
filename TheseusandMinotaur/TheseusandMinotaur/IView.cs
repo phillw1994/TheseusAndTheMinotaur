@@ -9,7 +9,7 @@ namespace TheseusAndTheMinotaur
     public interface IView
     {
         void Start();
-
+        void PanelRefresh();
         //void Stop();
     }
 }

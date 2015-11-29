@@ -36,14 +36,17 @@
             this.tsmiClose = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnHorizontalWall = new System.Windows.Forms.Button();
+            this.btnVerticalWall = new System.Windows.Forms.Button();
+            this.btnTheseus = new System.Windows.Forms.Button();
+            this.btnMinotaur = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.btnCursor = new System.Windows.Forms.Button();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,7 +57,8 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1039, 33);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(712, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -66,124 +70,164 @@
             this.resetToolStripMenuItem,
             this.tsmiClose});
             this.tsmiFile.Name = "tsmiFile";
-            this.tsmiFile.Size = new System.Drawing.Size(50, 29);
+            this.tsmiFile.Size = new System.Drawing.Size(37, 22);
             this.tsmiFile.Text = "&File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newToolStripMenuItem.Text = "&New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // tsmiOpen
             // 
             this.tsmiOpen.Name = "tsmiOpen";
-            this.tsmiOpen.Size = new System.Drawing.Size(183, 30);
+            this.tsmiOpen.Size = new System.Drawing.Size(132, 22);
             this.tsmiOpen.Text = "&Open";
             // 
             // resetToolStripMenuItem
             // 
             this.resetToolStripMenuItem.Name = "resetToolStripMenuItem";
-            this.resetToolStripMenuItem.Size = new System.Drawing.Size(183, 30);
+            this.resetToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.resetToolStripMenuItem.Text = "&Reset Level";
             // 
             // tsmiClose
             // 
             this.tsmiClose.Name = "tsmiClose";
-            this.tsmiClose.Size = new System.Drawing.Size(183, 30);
+            this.tsmiClose.Size = new System.Drawing.Size(132, 22);
             this.tsmiClose.Text = "&Close";
             this.tsmiClose.Click += new System.EventHandler(this.tsmiClose_Click);
             // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(61, 29);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
             this.helpToolStripMenuItem.Text = "&Help";
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 168);
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.Location = new System.Drawing.Point(33, 46);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1014, 563);
+            this.panel1.Size = new System.Drawing.Size(624, 292);
             this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(93, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(192, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(277, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(367, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
-            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button5, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button4, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 2, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(67, 49);
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Controls.Add(this.btnCursor, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnExit, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnMinotaur, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnTheseus, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnHorizontalWall, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.btnVerticalWall, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 32);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(452, 100);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(691, 58);
             this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // btnHorizontalWall
+            // 
+            this.btnHorizontalWall.Enabled = false;
+            this.btnHorizontalWall.Location = new System.Drawing.Point(3, 3);
+            this.btnHorizontalWall.Name = "btnHorizontalWall";
+            this.btnHorizontalWall.Size = new System.Drawing.Size(104, 39);
+            this.btnHorizontalWall.TabIndex = 0;
+            this.btnHorizontalWall.Text = "Horizontal Wall";
+            this.btnHorizontalWall.UseVisualStyleBackColor = true;
+            this.btnHorizontalWall.Click += new System.EventHandler(this.btnHorizontalWall_Click);
+            // 
+            // btnVerticalWall
+            // 
+            this.btnVerticalWall.Enabled = false;
+            this.btnVerticalWall.Location = new System.Drawing.Point(118, 3);
+            this.btnVerticalWall.Name = "btnVerticalWall";
+            this.btnVerticalWall.Size = new System.Drawing.Size(104, 39);
+            this.btnVerticalWall.TabIndex = 1;
+            this.btnVerticalWall.Text = "Vertical Wall";
+            this.btnVerticalWall.UseVisualStyleBackColor = true;
+            this.btnVerticalWall.Click += new System.EventHandler(this.btnVerticalWall_Click);
+            // 
+            // btnTheseus
+            // 
+            this.btnTheseus.Enabled = false;
+            this.btnTheseus.Location = new System.Drawing.Point(233, 3);
+            this.btnTheseus.Name = "btnTheseus";
+            this.btnTheseus.Size = new System.Drawing.Size(104, 39);
+            this.btnTheseus.TabIndex = 2;
+            this.btnTheseus.Text = "Theseus";
+            this.btnTheseus.UseVisualStyleBackColor = true;
+            this.btnTheseus.Click += new System.EventHandler(this.btnTheseus_Click);
+            // 
+            // btnMinotaur
+            // 
+            this.btnMinotaur.Enabled = false;
+            this.btnMinotaur.Location = new System.Drawing.Point(348, 3);
+            this.btnMinotaur.Name = "btnMinotaur";
+            this.btnMinotaur.Size = new System.Drawing.Size(104, 39);
+            this.btnMinotaur.TabIndex = 3;
+            this.btnMinotaur.Text = "Minotaur";
+            this.btnMinotaur.UseVisualStyleBackColor = true;
+            this.btnMinotaur.Click += new System.EventHandler(this.btnMinotaur_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.Enabled = false;
+            this.btnExit.Location = new System.Drawing.Point(463, 3);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(104, 39);
+            this.btnExit.TabIndex = 4;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // btnCursor
+            // 
+            this.btnCursor.Enabled = false;
+            this.btnCursor.Location = new System.Drawing.Point(578, 3);
+            this.btnCursor.Name = "btnCursor";
+            this.btnCursor.Size = new System.Drawing.Size(104, 39);
+            this.btnCursor.TabIndex = 5;
+            this.btnCursor.Text = "Cursor";
+            this.btnCursor.UseVisualStyleBackColor = true;
+            this.btnCursor.Click += new System.EventHandler(this.btnCursor_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(11, 95);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(691, 385);
+            this.tableLayoutPanel2.TabIndex = 8;
             // 
             // FrmEditor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1039, 743);
+            this.ClientSize = new System.Drawing.Size(712, 484);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Theseus and the Minotaur Editor";
@@ -191,6 +235,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,12 +251,14 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnMinotaur;
+        private System.Windows.Forms.Button btnTheseus;
+        private System.Windows.Forms.Button btnHorizontalWall;
+        private System.Windows.Forms.Button btnVerticalWall;
+        private System.Windows.Forms.Button btnCursor;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
 

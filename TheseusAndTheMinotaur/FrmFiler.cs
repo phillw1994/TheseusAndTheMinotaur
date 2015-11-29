@@ -70,15 +70,20 @@ namespace TheseusAndTheMinotaur
 
         public string[] GetValueOfItem()
         {
-            string[] lines;
+            string[] lines = {};
             foreach (var something in maps)
             {
-                if (something.Key == this.listBox1.SelectedValue.ToString())
+                if (something.Key == this.listBox1.SelectedItem.ToString())
                 {
                     lines = something.Value;
                 }
             }
             return lines;
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
