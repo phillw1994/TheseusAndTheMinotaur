@@ -38,7 +38,7 @@ namespace TheseusAndTheMinotaur
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = panel1.CreateGraphics();
-            //Pen p;
+            Pen p;
             this.sizeX = this.editor.GetWidth();
             this.sizeY = this.editor.GetHeight();
             this.squareSize = 50;
@@ -64,7 +64,7 @@ namespace TheseusAndTheMinotaur
                     rectEndRight += squareSize;
                     while (column <= amountOfSquaresX-1)
                     {
-                        /*Tile tile = this.game.GetTile(row, column);
+                        Tile tile = this.editor.GetTile(row, column);
                         if (tile != null) {
                             if (tile.GetLeftWall() == true)
                             {
@@ -75,11 +75,11 @@ namespace TheseusAndTheMinotaur
                             {
                                 p = new Pen(Color.Black);
                                 g.DrawLine(p, rectStartLeft, rectStartTop, rectEndRight, rectStartTop);
-                            }*/
-                            checkChar('-', g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
+                            }
+                            checkChar(tile.GetSymbol(), g, rectStartLeft, rectEndRight, rectEndBottom, rectStartTop);
                             rectStartLeft = rectEndRight;
                             rectEndRight += squareSize;
-                        //}
+                        }
                         column += 1;
                     }
                     rectStartTop = rectEndBottom;
@@ -163,6 +163,7 @@ namespace TheseusAndTheMinotaur
             this.btnTheseus.Enabled = true;
             this.btnMinotaur.Enabled = true;
             this.btnExit.Enabled = true;
+            this.editor.CreateMap(this.sizeX, this.sizeY);
             panel1.Invalidate();
         }
 
@@ -260,6 +261,7 @@ namespace TheseusAndTheMinotaur
             MessageBox.Show(point.ToString());
             Debug.WriteLine("Amount Squares X: " + amountSquaresX);
             Debug.WriteLine("Amount Squares Y: " + amountSquaresY);
+
         }
     }
 }

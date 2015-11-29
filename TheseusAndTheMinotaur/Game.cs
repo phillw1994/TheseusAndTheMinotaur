@@ -141,8 +141,6 @@ namespace TheseusAndTheMinotaur
                     //Figures out if theseus moved left
                     if (coords[1] > theseusCoords[1] && tile.GetLeftWall() != true)
                     {
-                        //Check nextTile not null, wall, hidden etc.
-                        //Minotaur moves left
                         Debug.WriteLine("Minotuar Moves Left");
                         tile2 = maze.GetTile(coords[0], coords[1] - 1);
                         if (tile.GetLeftWall() != true && tile2 != null && tile != null && theseus != null)
@@ -153,8 +151,6 @@ namespace TheseusAndTheMinotaur
                     }
                     else if (coords[1] < theseusCoords[1] && maze.GetTile(coords[0], coords[1] + 1).GetLeftWall() != true)
                     {
-                        //Check nextTile not null, wall, hidden etc.
-                        //Minotaur moves right
                         Debug.WriteLine("Minotuar Moves Right");
                         tile2 = maze.GetTile(coords[0], coords[1] + 1);
                         if (tile2.GetLeftWall() != true && tile2 != null && tile != null && theseus != null)

@@ -11,7 +11,7 @@ namespace TheseusAndTheMinotaur.Library
         private int width = 0;
         private int height = 0;
         private IView view;
-
+        private Maze maze = new Maze();
 
         public Editor(IView theView)
         {
@@ -43,5 +43,16 @@ namespace TheseusAndTheMinotaur.Library
         {
             return this.height;
         }
+
+        public void CreateMap(int width, int height)
+        {
+            this.maze.CreateMap(width, height);
+        }
+
+        public Tile GetTile(int row, int column)
+        {
+            return this.maze.GetTile(row, column);
+        }
+
     }
 }

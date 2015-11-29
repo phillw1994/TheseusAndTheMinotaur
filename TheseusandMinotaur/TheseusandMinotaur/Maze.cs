@@ -15,6 +15,28 @@ namespace TheseusAndTheMinotaur.Library
         private int width;
         private string name;
 
+        public void CreateMap(int width, int height)
+        {
+            int gridHeight = height + 1;
+            int gridWidth = width + 1;
+
+            int row = 0;
+            int column = 0;
+
+            while(row <= gridHeight-1)
+            {
+                column = 0;
+                while (column <= gridWidth-1)
+                {
+                    Tile tile = new Tile(row, column);
+                    tile.SetSymbol('-');
+                    column += 1;
+                }
+                row += 1;
+            }
+        }
+
+
         /// <summary>
         /// Creates a map from a Map String
         /// </summary>

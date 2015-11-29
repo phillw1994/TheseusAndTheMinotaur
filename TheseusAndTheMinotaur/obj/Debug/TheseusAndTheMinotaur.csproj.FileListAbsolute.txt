@@ -39,3 +39,4 @@ C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\ob
 \\Adfsstud1\n-q\pjw283\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.SplashScreen.resources
 \\Adfsstud1\n-q\pjw283\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.csproj.GenerateResource.Cache
 \\Adfsstud1\n-q\pjw283\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmFiler.resources
+C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusAndTheMinotaur\obj\Debug\TheseusAndTheMinotaur.FrmFiler.resources
