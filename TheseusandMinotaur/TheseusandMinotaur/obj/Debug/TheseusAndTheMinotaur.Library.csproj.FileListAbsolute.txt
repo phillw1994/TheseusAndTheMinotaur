@@ -10,3 +10,9 @@ C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\These
 \\Adfsstud1\n-q\pjw283\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.dll
 \\Adfsstud1\n-q\pjw283\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.pdb
 C:\Users\Phillip\Documents\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMinotaur.Library.csprojResolveAssemblyReference.cache
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.dll.config
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.dll
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\bin\Debug\TheseusAndTheMInotaur.Library.pdb
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMinotaur.Library.csprojResolveAssemblyReference.cache
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.dll
+\\ADFSSTUD1\N-Q\pjw283\WindowsSettings\Desktop\GitHub\TheseusAndTheMinotaur\TheseusandMinotaur\TheseusandMinotaur\obj\Debug\TheseusAndTheMInotaur.Library.pdb

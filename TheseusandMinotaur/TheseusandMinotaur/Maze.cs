@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Collections;
+using System.Diagnostics;
 
 namespace TheseusAndTheMinotaur.Library
 {
@@ -20,6 +21,8 @@ namespace TheseusAndTheMinotaur.Library
             int gridHeight = height + 1;
             int gridWidth = width + 1;
 
+            Debug.WriteLine("Width: " + gridWidth + " Height: " + gridHeight);
+
             int row = 0;
             int column = 0;
 
@@ -30,6 +33,7 @@ namespace TheseusAndTheMinotaur.Library
                 {
                     Tile tile = new Tile(row, column);
                     tile.SetSymbol('-');
+                    tiles.Add(tile);
                     column += 1;
                 }
                 row += 1;
