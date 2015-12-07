@@ -16,7 +16,7 @@ namespace TheseusAndTheMinotaur
         private int sizeY;
         private int squareSize;
         private Game game;
-        private string[] map;
+        private Filer filer;
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -243,9 +243,7 @@ namespace TheseusAndTheMinotaur
                     {
                         string filename = opfd.FileName;
                         string[] filelines = File.ReadAllLines(filename);
-                        this.map = filelines;
                         this.game.LoadMap(filelines);
-                        this.resetToolStripMenuItem.Enabled = true;
                         this.panel1.Invalidate();
                     }
                 }
@@ -259,14 +257,6 @@ namespace TheseusAndTheMinotaur
         public void PanelRefresh()
         {
             panel1.Invalidate();
-        }
-
-        private void resetToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.game = new Game(this);
-            this.game.Go();
-            this.game.LoadMap(map);
-            this.panel1.Invalidate();
         }
     }
 }

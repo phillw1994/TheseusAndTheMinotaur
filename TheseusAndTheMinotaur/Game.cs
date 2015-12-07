@@ -32,28 +32,28 @@ namespace TheseusAndTheMinotaur
 
         public void TheseusMovement(string type)
         {
-            Tile theseus, nextTile;
+            Tile tile, tile2;
             int[] coords;
             switch (type)
             {
                 case "Up":
                     if (this.gameLoss != true)
                     {
-                        theseus = this.maze.GetTile((char)Specials.Theseus);
-                        if (theseus.GetTopWall() != true)
+                        tile = this.maze.GetTile((char)Specials.Theseus);
+                        if (tile.GetTopWall() != true)
                         {
-                            coords = theseus.GetCoords();
-                            nextTile = maze.GetTile(coords[0] - 1, coords[1]);
-                            if (theseus != null && nextTile != null && nextTile.GetSymbol() != (char)Specials.Minotaur)
+                            coords = tile.GetCoords();
+                            tile2 = maze.GetTile(coords[0] - 1, coords[1]);
+                            if (tile != null && tile2 != null && tile2.GetSymbol() != (char)Specials.Minotaur)
                             {
-                                if (nextTile.GetSymbol() != (char)Specials.Hidden)
+                                if (tile2.GetSymbol() != (char)Specials.Hidden)
                                 {
-                                    if (nextTile.GetSymbol() == (char)Specials.Exit)
+                                    if (tile2.GetSymbol() == (char)Specials.Exit)
                                     {
                                         this.gameWin = true;
                                     }
-                                    nextTile.SetSymbol((char)Specials.Theseus);
-                                    theseus.SetSymbol((char)Specials.Floor);
+                                    tile2.SetSymbol((char)Specials.Theseus);
+                                    tile.SetSymbol((char)Specials.Floor);
                                 }
                             }
                         }
@@ -62,19 +62,19 @@ namespace TheseusAndTheMinotaur
                 case "Down":
                     if (this.gameLoss != true)
                     {
-                        theseus = this.maze.GetTile((char)Specials.Theseus);
-                        coords = theseus.GetCoords();
-                        nextTile = maze.GetTile(coords[0] + 1, coords[1]);
-                        if (theseus != null && nextTile != null && nextTile.GetTopWall() != true && nextTile.GetSymbol() != (char)Specials.Minotaur)
+                        tile = this.maze.GetTile((char)Specials.Theseus);
+                        coords = tile.GetCoords();
+                        tile2 = maze.GetTile(coords[0] + 1, coords[1]);
+                        if (tile != null && tile2 != null && tile2.GetTopWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                         {
-                            if (nextTile.GetSymbol() != (char)Specials.Hidden)
+                            if (tile2.GetSymbol() != (char)Specials.Hidden)
                             {
-                                if (nextTile.GetSymbol() == (char)Specials.Exit)
+                                if (tile2.GetSymbol() == (char)Specials.Exit)
                                 {
                                     this.gameWin = true;
                                 }
-                                nextTile.SetSymbol((char)Specials.Theseus);
-                                theseus.SetSymbol((char)Specials.Floor);
+                                tile2.SetSymbol((char)Specials.Theseus);
+                                tile.SetSymbol((char)Specials.Floor);
                             }
                         }
                     }
@@ -82,19 +82,19 @@ namespace TheseusAndTheMinotaur
                 case "Left":
                     if (this.gameLoss != true)
                     {
-                        theseus = this.maze.GetTile((char)Specials.Theseus);
-                        coords = theseus.GetCoords();
-                        nextTile = maze.GetTile(coords[0], coords[1] - 1);
-                        if (theseus != null && nextTile != null && theseus.GetLeftWall() != true && nextTile.GetSymbol() != (char)Specials.Minotaur)
+                        tile = this.maze.GetTile((char)Specials.Theseus);
+                        coords = tile.GetCoords();
+                        tile2 = maze.GetTile(coords[0], coords[1] - 1);
+                        if (tile != null && tile2 != null && tile.GetLeftWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                         {
-                            if (nextTile.GetSymbol() != (char)Specials.Hidden)
+                            if (tile2.GetSymbol() != (char)Specials.Hidden)
                             {
-                                if (nextTile.GetSymbol() == (char)Specials.Exit)
+                                if (tile2.GetSymbol() == (char)Specials.Exit)
                                 {
                                     this.gameWin = true;
                                 }
-                                nextTile.SetSymbol((char)Specials.Theseus);
-                                theseus.SetSymbol((char)Specials.Floor);
+                                tile2.SetSymbol((char)Specials.Theseus);
+                                tile.SetSymbol((char)Specials.Floor);
                             }
                         }
                     }
@@ -102,19 +102,19 @@ namespace TheseusAndTheMinotaur
                 case "Right":
                     if (this.gameLoss != true)
                     {
-                        theseus = this.maze.GetTile((char)Specials.Theseus);
-                        coords = theseus.GetCoords();
-                        nextTile = maze.GetTile(coords[0], coords[1] + 1);
-                        if (theseus != null && nextTile != null && nextTile.GetLeftWall() != true && nextTile.GetSymbol() != (char)Specials.Minotaur)
+                        tile = this.maze.GetTile((char)Specials.Theseus);
+                        coords = tile.GetCoords();
+                        tile2 = maze.GetTile(coords[0], coords[1] + 1);
+                        if (tile != null && tile2 != null && tile2.GetLeftWall() != true && tile2.GetSymbol() != (char)Specials.Minotaur)
                         {
-                            if (nextTile.GetSymbol() != (char)Specials.Hidden)
+                            if (tile2.GetSymbol() != (char)Specials.Hidden)
                             {
-                                if (nextTile.GetSymbol() == (char)Specials.Exit)
+                                if (tile2.GetSymbol() == (char)Specials.Exit)
                                 {
                                     this.gameWin = true;
                                 }
-                                nextTile.SetSymbol((char)Specials.Theseus);
-                                theseus.SetSymbol((char)Specials.Floor);
+                                tile2.SetSymbol((char)Specials.Theseus);
+                                tile.SetSymbol((char)Specials.Floor);
                             }
                         }
                     }
@@ -127,52 +127,60 @@ namespace TheseusAndTheMinotaur
         {
             if (this.gameLoss != true)
             {
-                Tile minotaur, nextTile, theseus;
+                Tile tile, tile2, theseus;
                 int[] coords, theseusCoords;
-                minotaur = this.maze.GetTile((char)Specials.Minotaur);
+
+                //Figure out Theseus Coords
+
+                tile = this.maze.GetTile((char)Specials.Minotaur);
                 theseus = this.maze.GetTile((char)Specials.Theseus);
-                if (theseus != null && minotaur != null)
+                if (theseus != null && tile != null)
                 {
-                    coords = minotaur.GetCoords();
+                    coords = tile.GetCoords();
                     theseusCoords = theseus.GetCoords();
-                    if (coords[1] > theseusCoords[1] && minotaur.GetLeftWall() != true)
+                    //Figures out if theseus moved left
+                    if (coords[1] > theseusCoords[1] && tile.GetLeftWall() != true)
                     {
-                        //Minotaur Moves Left
-                        nextTile = maze.GetTile(coords[0], coords[1] - 1);
-                        if (minotaur.GetLeftWall() != true && nextTile != null && minotaur != null && theseus != null)
+                        Debug.WriteLine("Minotuar Moves Left");
+                        tile2 = maze.GetTile(coords[0], coords[1] - 1);
+                        if (tile.GetLeftWall() != true && tile2 != null && tile != null && theseus != null)
                         {
-                            nextTile.SetSymbol((char)Specials.Minotaur);
-                            minotaur.SetSymbol((char)Specials.Floor);
+                            tile2.SetSymbol((char)Specials.Minotaur);
+                            tile.SetSymbol((char)Specials.Floor);
                         }
                     }
                     else if (coords[1] < theseusCoords[1] && maze.GetTile(coords[0], coords[1] + 1).GetLeftWall() != true)
                     {
-                        //Minotaur Moves Right
-                        nextTile = maze.GetTile(coords[0], coords[1] + 1);
-                        if (nextTile.GetLeftWall() != true && nextTile != null && minotaur != null && theseus != null)
+                        Debug.WriteLine("Minotuar Moves Right");
+                        tile2 = maze.GetTile(coords[0], coords[1] + 1);
+                        if (tile2.GetLeftWall() != true && tile2 != null && tile != null && theseus != null)
                         {
-                            nextTile.SetSymbol((char)Specials.Minotaur);
-                            minotaur.SetSymbol((char)Specials.Floor);
+                            tile2.SetSymbol((char)Specials.Minotaur);
+                            tile.SetSymbol((char)Specials.Floor);
                         }
                     }
                     else if (coords[0] < theseusCoords[0] && maze.GetTile(coords[0] + 1, coords[1]).GetTopWall() != true)
                     {
-                        //Minotaur moves down
-                        nextTile = maze.GetTile(coords[0] + 1, coords[1]);
-                        if (nextTile.GetTopWall() != true && nextTile != null && minotaur != null && theseus != null)
+                        //Check nextTile not null, wall, hidden etc.
+                        //Minotaur moves up
+                        Debug.WriteLine("Minotuar Moves Down");
+                        tile2 = maze.GetTile(coords[0] + 1, coords[1]);
+                        if (tile2.GetTopWall() != true && tile2 != null && tile != null && theseus != null)
                         {
-                            nextTile.SetSymbol((char)Specials.Minotaur);
-                            minotaur.SetSymbol((char)Specials.Floor);
+                            tile2.SetSymbol((char)Specials.Minotaur);
+                            tile.SetSymbol((char)Specials.Floor);
                         }
                     }
-                    else if (coords[0] > theseusCoords[0] && minotaur.GetTopWall() != true)
+                    else if (coords[0] > theseusCoords[0] && tile.GetTopWall() != true)
                     {
-                        //Minotaur moves up
-                        nextTile = maze.GetTile(coords[0] - 1, coords[1]);
-                        if (nextTile.GetTopWall() != true && nextTile.GetLeftWall() != true && nextTile != null && minotaur != null && theseus != null)
+                        //Check nextTile not null, wall, hidden etc.
+                        //Minotaur moves down
+                        Debug.WriteLine("Minotuar Moves Up");
+                        tile2 = maze.GetTile(coords[0] - 1, coords[1]);
+                        if (tile2.GetTopWall() != true && tile2.GetLeftWall() != true && tile2 != null && tile != null && theseus != null)
                         {
-                            nextTile.SetSymbol((char)Specials.Minotaur);
-                            minotaur.SetSymbol((char)Specials.Floor);
+                            tile2.SetSymbol((char)Specials.Minotaur);
+                            tile.SetSymbol((char)Specials.Floor);
                         }
                     }
                     if ((Tile)this.maze.GetTile((char)Specials.Theseus) == null)

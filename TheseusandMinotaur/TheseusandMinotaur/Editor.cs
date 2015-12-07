@@ -11,17 +11,17 @@ namespace TheseusAndTheMinotaur.Library
         private int width = 0;
         private int height = 0;
         private IView view;
-        private Maze maze;
+        private Maze maze = new Maze();
 
         public Editor(IView theView)
         {
             this.view = theView;
-            this.maze = new Maze();
         }
 
         public void Go()
         {
             this.view.Start();
+            //this.maze = new Maze();
         }
 
         public void SetHeight(int height)

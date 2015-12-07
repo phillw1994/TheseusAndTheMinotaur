@@ -153,15 +153,17 @@ namespace TheseusAndTheMinotaur
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.editor = new Editor(this);
             FrmNewMaze frmNewMaze = new FrmNewMaze();
             frmNewMaze.FormClosing += delegate {  this.editor.SetWidth(frmNewMaze.GetWidth()); this.editor.SetHeight(frmNewMaze.GetHeight()); };
             frmNewMaze.ShowDialog();
+            //this.editor.Go();
             this.btnHorizontalWall.Enabled = true;
             this.btnVerticalWall.Enabled = true;
             this.btnTheseus.Enabled = true;
             this.btnMinotaur.Enabled = true;
             this.btnExit.Enabled = true;
-            this.editor.CreateMap(this.editor.GetWidth(), this.editor.GetHeight());
+            this.editor.CreateMap(this.sizeX, this.sizeY);
             panel1.Invalidate();
         }
 
@@ -178,7 +180,6 @@ namespace TheseusAndTheMinotaur
             this.btnMinotaur.Enabled = true;
             this.btnExit.Enabled = true;
             this.btnCursor.Enabled = true;
-            panel1.Invalidate();
         }
 
         private void btnVerticalWall_Click(object sender, EventArgs e)
